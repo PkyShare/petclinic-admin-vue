@@ -1,0 +1,20 @@
+//出库管理
+
+import axios from 'axios';
+
+let base = 'http://localhost:8080/v1';
+
+//保存信息
+export const outputSave = (params) => {
+  return axios.post(`${base}/output_warehouse`, params)
+}
+
+//删除信息
+export const outputDel = (params) => {
+  return axios.delete(`${base}/output_warehouse/${params}`).then(res => res)
+}
+
+//分页
+export const outputList = (num, size) => {
+  return axios.get(`${base}/output_warehouse/page/${num}/${size}`).then(res => res);
+}
